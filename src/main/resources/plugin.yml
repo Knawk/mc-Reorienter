@@ -1,0 +1,4 @@
+name: Reorienter
+version: 1.0
+main: net.knawk.mc.reorienter.ReorienterPlugin
+authors: ['Knawk']

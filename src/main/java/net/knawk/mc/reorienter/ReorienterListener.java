@@ -1,23 +1,16 @@
 package net.knawk.mc.reorienter;
 
-import com.sun.jdi.InvocationException;
 import net.knawk.mc.reorienter.orient.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.block.data.BlockData;
-import org.bukkit.block.data.Directional;
-import org.bukkit.block.data.Orientable;
-import org.bukkit.block.data.Rotatable;
+import org.bukkit.block.data.*;
+import org.bukkit.block.data.type.Slab;
+import org.bukkit.block.data.type.Stairs;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.logging.Level;
+import java.util.*;
 import java.util.logging.Logger;
 
 public class ReorienterListener implements Listener {
@@ -29,7 +22,9 @@ public class ReorienterListener implements Listener {
 
     private static final Map<Class<? extends BlockData>, Orienter> ORIENTER_BY_BLOCK_DATA;
     static {
-        ORIENTER_BY_BLOCK_DATA = new HashMap<>();
+        ORIENTER_BY_BLOCK_DATA = new LinkedHashMap<>();
+        ORIENTER_BY_BLOCK_DATA.put(Stairs.class, new StairOrienter());
+        ORIENTER_BY_BLOCK_DATA.put(Slab.class, new SlabOrienter());
         ORIENTER_BY_BLOCK_DATA.put(Orientable.class, new OrientableOrienter());
         ORIENTER_BY_BLOCK_DATA.put(Rotatable.class, new RotatableOrienter());
         ORIENTER_BY_BLOCK_DATA.put(Directional.class, new DirectionalOrienter());

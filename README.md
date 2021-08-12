@@ -11,15 +11,19 @@ Supported blocks:
   - Basalts
   - Pillars (quartz, purpur)
   - Bone
-    
-- TODO
-  - Carved pumpkins
-  - Signs, grounded heads
+- Directional
+  - Chest, ender chest
+  - Bee nest/hive
+  - Carved pumpkin, jack o' lantern
+  - End/lightning rod
+  - Barrel
   - Glazed terracotta
-  - End/lightning rods
-  - Chests/barrel
-  - Slabs
-  - Stairs
-  - Hopper
-  - Dispenser/dropper/observer
   - Pistons
+  - Dispenser and dropper
+  - Observer
+  - Hopper
+- Rotatable (TODO)
+  - Player/mob heads
+  - Standing signs
+- Stairs (TODO)
+- Slabs (TODO)

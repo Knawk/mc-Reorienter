@@ -5,5 +5,5 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.BlockData;
 
 public interface Orienter {
-    boolean act(OrientAction action, final Block block, final BlockFace blockFace, final BlockData blockData);
+    boolean act(OrientAction action, final Block block, final BlockFace clickedFace, final BlockData blockData);
 }

@@ -7,7 +7,7 @@ import org.bukkit.block.data.Rotatable;
 
 public class RotatableOrienter implements Orienter {
     @Override
-    public boolean act(OrientAction action, Block block, BlockFace blockFace, BlockData blockData) {
+    public boolean act(OrientAction action, Block block, BlockFace clickedFace, BlockData blockData) {
         final Rotatable rotatable = (Rotatable) blockData;
         switch (action) {
             case SET -> {

@@ -6,7 +6,7 @@ import org.bukkit.block.data.BlockData;
 
 public class SlabOrienter implements Orienter {
     @Override
-    public boolean act(OrientAction action, Block block, BlockFace blockFace, BlockData blockData) {
+    public boolean act(OrientAction action, Block block, BlockFace clickedFace, BlockData blockData) {
         return false;
     }
 }

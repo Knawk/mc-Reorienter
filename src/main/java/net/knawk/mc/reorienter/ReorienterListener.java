@@ -55,9 +55,9 @@ public class ReorienterListener implements Listener {
                 .filter(entry -> entry.getKey().isInstance(blockData))
                 .map(Map.Entry::getValue)
                 .findFirst();
-        if (orienter.isEmpty()) {
-            return;
-        }
+        if (orienter.isEmpty()) return;
+
+        log.info(String.format("Choosing orienter %s", orienter.get().getClass().getSimpleName()));
 
         if (orienter.get().act(action, clickedBlock, clickedBlockFace, blockData)) {
             event.setCancelled(true);

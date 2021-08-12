@@ -12,13 +12,13 @@ import java.util.Set;
 
 public class OrientableOrienter implements Orienter {
     @Override
-    public boolean act(OrientAction action, Block block, BlockFace blockFace, BlockData blockData) {
+    public boolean act(OrientAction action, Block block, BlockFace clickedFace, BlockData blockData) {
         if (!isReorientable(block.getType())) return false;
 
         final Orientable orientable = (Orientable) blockData;
         final Axis newAxis = switch (action) {
-            case SET -> blockFaceToAxis(blockFace);
-            case CYCLE -> cycleAxis(orientable.getAxis(), blockFace);
+            case SET -> blockFaceToAxis(clickedFace);
+            case CYCLE -> cycleAxis(orientable.getAxis(), clickedFace);
         };
         orientable.setAxis(newAxis);
         block.setBlockData(blockData);

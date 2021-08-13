@@ -107,7 +107,9 @@ public class DirectionalOrienter implements Orienter {
             Material.BROWN_GLAZED_TERRACOTTA,
             Material.GREEN_GLAZED_TERRACOTTA,
             Material.RED_GLAZED_TERRACOTTA,
-            Material.BLACK_GLAZED_TERRACOTTA
+            Material.BLACK_GLAZED_TERRACOTTA,
+            Material.CAMPFIRE,
+            Material.SOUL_CAMPFIRE
     );
 
     private enum DirectionalType { FOUR, FIVE, SIX }

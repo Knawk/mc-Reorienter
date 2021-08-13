@@ -6,7 +6,7 @@ Supported blocks:
 
 - Stairs
 - Slabs
-- Face-oriented
+- Direction-oriented
   - Chests
   - Bee nest/hive
   - Carved pumpkin, jack o' lantern
@@ -17,6 +17,7 @@ Supported blocks:
   - Dispenser and dropper
   - Observer
   - Hopper
+  - Campfires
 - Axis-oriented
   - Logs/stems, stripped and unstripped
   - Hay bale

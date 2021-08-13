@@ -4,15 +4,10 @@ A Spigot plugin for Minecraft that allows players to reorient blocks.
 
 Supported blocks:
 
-- Orientable
-  - Logs/stems, stripped and unstripped
-  - Hay bale
-  - Chain
-  - Basalts
-  - Pillars (quartz, purpur)
-  - Bone
-- Directional
-  - Chest, ender chest
+- Stairs
+- Slabs
+- Face-oriented
+  - Chests
   - Bee nest/hive
   - Carved pumpkin, jack o' lantern
   - End/lightning rod
@@ -22,8 +17,13 @@ Supported blocks:
   - Dispenser and dropper
   - Observer
   - Hopper
-- Rotatable (TODO)
+- Axis-oriented
+  - Logs/stems, stripped and unstripped
+  - Hay bale
+  - Chain
+  - Basalts
+  - Pillars (quartz, purpur)
+  - Bone
+- Cardinal direction-oriented
   - Player/mob heads
   - Standing signs
-- Stairs (TODO)
-- Slabs (TODO)

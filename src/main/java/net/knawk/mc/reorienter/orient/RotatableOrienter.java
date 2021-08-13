@@ -18,7 +18,9 @@ public class RotatableOrienter implements Orienter {
         if (!isOrientable(rotatable)) return false;
 
         final BlockFace newRotation = switch (action) {
-            case SET -> clickedFace;
+            case SET -> ORIENTABLE_HEADS.contains(blockData.getMaterial())
+                    ? clickedFace.getOppositeFace()
+                    : clickedFace;
             case CYCLE -> nextRotation(rotatable.getRotation());
         };
         if (Arrays.asList(ROTATIONS).contains(newRotation)) {

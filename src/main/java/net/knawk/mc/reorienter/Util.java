@@ -12,6 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Util {
@@ -23,6 +24,13 @@ public class Util {
         itemMeta.addEnchant(Enchantment.MENDING, 1, true);
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         itemMeta.setDisplayName(ChatColor.GREEN + REORIENTER);
+        itemMeta.setLore(List.of("""
+                Reorients orientable blocks.
+                
+                Left-click to set a block's orientation.
+                Right-click to cycle through a block's
+                vertical or horizontal orientations,
+                depending on which side you click.""".split("\n")));
         itemStack.setItemMeta(itemMeta);
         return itemStack;
     }

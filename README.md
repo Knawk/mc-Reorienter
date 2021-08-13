@@ -14,10 +14,15 @@ Supported blocks:
   - Barrel
   - Glazed terracotta
   - Pistons
-  - Dispenser and dropper
+  - Dispenser, dropper
   - Observer
   - Hopper
   - Campfires
+  - Furnaces
+  - Lectern
+  - Loom
+  - Repeater, comparator
+  - Levers/buttons on the floor/ceiling
 - Axis-oriented
   - Logs/stems, stripped and unstripped
   - Hay bale

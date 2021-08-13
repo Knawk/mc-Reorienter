@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.ShulkerBox;
 import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.Directional;
 import org.bukkit.block.data.FaceAttachable;
@@ -15,6 +16,7 @@ import org.bukkit.block.data.type.Switch;
 
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class DirectionalOrienter implements Orienter {
     @Override
@@ -38,6 +40,11 @@ public class DirectionalOrienter implements Orienter {
         if (directional.getFaces().contains(newBlockFace)) {
             directional.setFacing(newBlockFace);
             block.setBlockData(blockData);
+
+            // Force shulker box to close to prevent weird collision box things
+            if (block instanceof ShulkerBox shulkerBox) {
+                shulkerBox.close();
+            }
         }
         return true;
     }
@@ -74,23 +81,26 @@ public class DirectionalOrienter implements Orienter {
                 : Util.nextHorizontal(currentBlockFace);
     }
 
-    private static final Set<Material> SIX_FACE_DIRECTIONALS = Set.of(
-            Material.BARREL,
-            Material.OBSERVER,
-            // Rods
-            Material.END_ROD,
-            Material.LIGHTNING_ROD,
-            // Dispensers
-            Material.DISPENSER,
-            Material.DROPPER,
-            // Pistons
-            Material.PISTON,
-            Material.STICKY_PISTON
-    );
+    private static final Set<Material> SIX_FACE_DIRECTIONALS = Util.union(Stream.of(
+            Set.of(
+                    Material.BARREL,
+                    Material.OBSERVER,
+                    // Rods
+                    Material.END_ROD,
+                    Material.LIGHTNING_ROD,
+                    // Dispensers
+                    Material.DISPENSER,
+                    Material.DROPPER,
+                    // Pistons
+                    Material.PISTON,
+                    Material.STICKY_PISTON
+            ),
+            Tag.SHULKER_BOXES.getValues()
+    ));
 
     private static final Set<Material> FIVE_FACE_DIRECTIONALS = Set.of(Material.HOPPER);
 
-    private static final Set<Material> FOUR_FACE_DIRECTIONALS = Sets.union(
+    private static final Set<Material> FOUR_FACE_DIRECTIONALS = Util.union(Stream.of(
             Set.of(
                     // Chests
                     Material.CHEST,
@@ -136,8 +146,9 @@ public class DirectionalOrienter implements Orienter {
                     Material.COMPARATOR,
                     Material.LEVER
             ),
-            Tag.BUTTONS.getValues()
-    );
+            Tag.BUTTONS.getValues(),
+            Tag.ANVIL.getValues()
+    ));
 
     private enum DirectionalType { FOUR, FIVE, SIX }
 

@@ -1,5 +1,6 @@
 package net.knawk.mc.reorienter;
 
+import com.google.common.collect.Sets;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -13,6 +14,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Stream;
 
 public class Util {
     private static final String REORIENTER = "Reorienter";
@@ -70,5 +73,9 @@ public class Util {
         }
         final int nextIndex = (currentIndex + 1) % choices.length;
         return choices[nextIndex];
+    }
+
+    public static <T> Set<T> union(final Stream<Set<T>> sets) {
+        return sets.reduce(Sets::union).orElse(Set.of());
     }
 }

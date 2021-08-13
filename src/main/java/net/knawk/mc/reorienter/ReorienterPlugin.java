@@ -11,7 +11,7 @@ public class ReorienterPlugin extends JavaPlugin {
 
     public ReorienterPlugin() {
         log = getLogger();
-        reorienterKey = Util.getReorienterKey(this);
+        reorienterKey = new NamespacedKey(this, "reorienter");
     }
 
     @Override

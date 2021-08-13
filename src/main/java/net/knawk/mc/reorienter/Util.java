@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,10 +32,6 @@ public class Util {
                 depending on which side you click.""".split("\n")));
         itemStack.setItemMeta(itemMeta);
         return itemStack;
-    }
-
-    public static NamespacedKey getReorienterKey(final JavaPlugin plugin) {
-        return new NamespacedKey(plugin, "reorienter");
     }
 
     public static ShapedRecipe createReorienterRecipe(final NamespacedKey key) {

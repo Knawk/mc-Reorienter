@@ -24,11 +24,15 @@ public class Util {
     };
 
     public static BlockFace nextHorizontal(final BlockFace blockFace) {
-        final int currentIndex = Arrays.asList(HORIZONTAL_BLOCK_FACES).indexOf(blockFace);
+        return nextInCycle(HORIZONTAL_BLOCK_FACES, blockFace);
+    }
+
+    public static <T> T nextInCycle(final T[] choices, final T current) {
+        final int currentIndex = Arrays.asList(choices).indexOf(current);
         if (currentIndex == -1) {
             throw new UnsupportedOperationException();
         }
-        final int nextIndex = (currentIndex + 1) % HORIZONTAL_BLOCK_FACES.length;
-        return HORIZONTAL_BLOCK_FACES[nextIndex];
+        final int nextIndex = (currentIndex + 1) % choices.length;
+        return choices[nextIndex];
     }
 }

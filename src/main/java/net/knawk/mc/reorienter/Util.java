@@ -7,7 +7,6 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,10 +27,13 @@ public class Util {
         return itemStack;
     }
 
-    public static Recipe createReorienterRecipe(final JavaPlugin plugin) {
+    public static NamespacedKey getReorienterKey(final JavaPlugin plugin) {
+        return new NamespacedKey(plugin, "reorienter");
+    }
+
+    public static ShapedRecipe createReorienterRecipe(final NamespacedKey key) {
         final ItemStack reorienterItem = getReorienterItem();
-        final NamespacedKey namespacedKey = new NamespacedKey(plugin, "reorienter");
-        final ShapedRecipe recipe = new ShapedRecipe(namespacedKey, reorienterItem);
+        final ShapedRecipe recipe = new ShapedRecipe(key, reorienterItem);
         recipe.shape("SSS", "SCS", "SRS");
         recipe.setIngredient('S', Material.AMETHYST_SHARD);
         recipe.setIngredient('C', Material.COMPASS);

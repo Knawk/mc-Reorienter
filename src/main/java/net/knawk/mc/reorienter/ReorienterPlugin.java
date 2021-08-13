@@ -1,14 +1,17 @@
 package net.knawk.mc.reorienter;
 
+import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
 public class ReorienterPlugin extends JavaPlugin {
     private final Logger log;
+    private final NamespacedKey reorienterKey;
 
     public ReorienterPlugin() {
         log = getLogger();
+        reorienterKey = Util.getReorienterKey(this);
     }
 
     @Override
@@ -16,6 +19,10 @@ public class ReorienterPlugin extends JavaPlugin {
         getServer().getPluginManager()
                 .registerEvents(new ReorienterListener(this), this);
 
-        getServer().addRecipe(Util.createReorienterRecipe(this));
+        getServer().addRecipe(Util.createReorienterRecipe(reorienterKey));
+    }
+
+    public NamespacedKey getReorienterKey() {
+        return reorienterKey;
     }
 }

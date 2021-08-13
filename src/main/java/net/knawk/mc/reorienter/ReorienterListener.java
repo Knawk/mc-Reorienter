@@ -45,11 +45,6 @@ public class ReorienterListener implements Listener {
         final BlockData blockData = clickedBlock.getBlockData();
         final BlockFace clickedBlockFace = event.getBlockFace();
 
-        log.info(String.format("%s on %s of %s",
-                action,
-                event.getBlockFace().name(),
-                Objects.requireNonNull(event.getClickedBlock()).getType().name()));
-
         final Optional<Orienter> orienter = ORIENTER_BY_BLOCK_DATA.entrySet()
                 .stream()
                 .filter(entry -> entry.getKey().isInstance(blockData))
@@ -57,7 +52,8 @@ public class ReorienterListener implements Listener {
                 .findFirst();
         if (orienter.isEmpty()) return;
 
-        log.info(String.format("Choosing orienter %s", orienter.get().getClass().getSimpleName()));
+        log.finer(String.format("Choosing orienter %s for %s",
+                orienter.get().getClass().getSimpleName(), clickedBlock.getType().name()));
 
         if (orienter.get().act(action, clickedBlock, clickedBlockFace, blockData)) {
             event.setCancelled(true);

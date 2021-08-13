@@ -1,15 +1,46 @@
 package net.knawk.mc.reorienter;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.block.BlockFace;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Util {
+    private static final String REORIENTER = "Reorienter";
+
+    public static ItemStack getReorienterItem() {
+        final ItemStack itemStack = new ItemStack(Material.COMPASS);
+        final ItemMeta itemMeta = Objects.requireNonNull(itemStack.getItemMeta());
+        itemMeta.addEnchant(Enchantment.MENDING, 1, true);
+        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itemMeta.setDisplayName(ChatColor.GREEN + REORIENTER);
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
+    }
+
+    public static Recipe createReorienterRecipe(final JavaPlugin plugin) {
+        final ItemStack reorienterItem = getReorienterItem();
+        final NamespacedKey namespacedKey = new NamespacedKey(plugin, "reorienter");
+        final ShapedRecipe recipe = new ShapedRecipe(namespacedKey, reorienterItem);
+        recipe.shape("SSS", "SCS", "SRS");
+        recipe.setIngredient('S', Material.AMETHYST_SHARD);
+        recipe.setIngredient('C', Material.COMPASS);
+        recipe.setIngredient('R', Material.REDSTONE);
+        return recipe;
+    }
+
     public static boolean isReorienterItem(final ItemStack itemStack) {
-        // TODO allow fancy compass only
-        return itemStack != null && itemStack.getType().equals(Material.COMPASS);
+        return getReorienterItem().isSimilar(itemStack);
     }
 
     public static boolean isVertical(final BlockFace blockFace) {

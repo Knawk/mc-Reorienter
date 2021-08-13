@@ -16,6 +16,6 @@ public class ReorienterPlugin extends JavaPlugin {
         getServer().getPluginManager()
                 .registerEvents(new ReorienterListener(this), this);
 
-        // TODO register crafting recipe
+        getServer().addRecipe(Util.createReorienterRecipe(this));
     }
 }

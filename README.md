@@ -23,6 +23,8 @@ Supported blocks:
   - Loom
   - Repeater, comparator
   - Levers/buttons on the floor/ceiling
+  - Doors, trapdoors, fence gates (TODO)
+  - Dripleaves (TODO)
 - Axis-oriented
   - Logs/stems, stripped and unstripped
   - Hay bale
@@ -33,3 +35,4 @@ Supported blocks:
 - Cardinal direction-oriented
   - Player/mob heads
   - Standing signs
+  - Standing banners (TODO)

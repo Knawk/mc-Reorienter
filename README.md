@@ -1,8 +1,15 @@
-# Reorientable
+# Reorienter
 
-A Spigot plugin for Minecraft that allows players to reorient blocks.
+NOTE: this plugin is public for archival purposes only; it is no longer maintained.
 
-Supported blocks:
+**Reorienter** is a Spigot plugin for Minecraft 1.17 that allows players to easily reorient blocks.
+Players can craft the *Reorienter* item from amethyst shards, redstone dust, and a compass.
+Left-clicking a block with the *Reorienter* item sets the block's orientation based on the clicked block face.
+Right-clicking cycles between the block's vertical or horizontal orientations, depending on whether a vertical or horizontal block face was clicked.
+
+![Reorienter item recipe in-game screenshot](/assets/reorienter-recipe.png)
+
+## Supported blocks
 
 - Stairs
 - Slabs
